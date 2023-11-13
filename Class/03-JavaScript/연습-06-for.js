@@ -116,3 +116,32 @@ for (let i = 0; i < fruits.length; i++) {
 // VM3881:2 과일 차트 9위는 과일선물세트입니다.
 // VM3881:2 과일 차트 10위는 귤입니다.
 // undefined
+
+Math.floor(Math.random() * 1000000);
+// 913231
+String(Math.floor(Math.random() * 1000000));
+// '544148'
+String(Math.floor(Math.random() * 1000000));
+// '483553'
+String(Math.floor(Math.random() * 1000000));
+// '376103'
+String(Math.floor(Math.random() * 1000000));
+// '914022'
+String(Math.floor(Math.random() * 1000000));
+// '158517'
+String(Math.floor(Math.random() * 1000000));
+// '578693'
+String(Math.floor(Math.random() * 1000000));
+// '455992'
+String(Math.floor(Math.random() * 1000000));
+// '936904'
+String(Math.floor(Math.random() * 1000000)).padStart(6, "0");
+// '851017'
+String(Math.floor(Math.random() * 1000000)).padStart(6, "0");
+// '657966'
+String(Math.floor(Math.random() * 1000000)).padStart(6, "0");
+// '094247'
+let result = String(Math.floor(Math.random() * 1000000)).padStart(6, "0");
+// undefined
+result;
+// '293649'
