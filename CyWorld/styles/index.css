@@ -6,14 +6,14 @@
 .background {
     width: 1024px;
     height: 600px;
-    background-image: url("../images/outerbox.png");
+    background-image: url('../images/outerbox.png');
     padding: 20px 0px 0px 20px;
 }
 
 .outerbox {
     width: 808px;
     height: 544px;
-    background-image: url("../images/background.png");
+    background-image: url('../images/background.png');
 }
 
 .wrapper {
@@ -172,4 +172,28 @@ iframe {
     width: 100%;
     height: 100%;
     border: none;
+}
+
+.navigation {
+    width: 62px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    left: 774px;
+    top: 110px;
+}
+
+.navigation_item {
+    width: 60px;
+    height: 30px;
+    background-color: #298eb5;
+    border: 1px solid black;
+    color: white;
+    border-radius: 0px 10px 10px 0px;
+    font-size: 10px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
 }
