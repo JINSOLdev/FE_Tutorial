@@ -1,17 +1,36 @@
-let auth = () => {
-    const token = String(Math.floor(Math.random() * 100000)).padStart(6, "0");
-    document.getElementById("target").innerText = token;
-    document.getElementById("target").style.color = "#" + token;
-};
+let isStarted = false;
 
-let time = 5;
-setInterval(function () {
-    if (time >= 0) {
-        let min = Math.floor(time / 60);
-        let sec = String(time % 60).padStart(2, "0");
-        document.getElementById("timer").innerText = min + ":" + sec;
-        time = time - 1;
+let auth = () => {
+    if (isStarted === false) {
+        // 타이머가 동작하지 않을 때
+        isStarted = true;
+        document.getElementById("finish").disabled = false;
+        const token = String(Math.floor(Math.random() * 100000)).padStart(
+            6,
+            "0"
+        );
+        document.getElementById("target").innerText = token;
+        document.getElementById("target").style.color = "#" + token;
+
+        
+
+        let time = 10;
+        let timer;
+
+        timer = setInterval(function () {
+            if (time >= 0) {
+                let min = Math.floor(time / 60);
+                let sec = String(time % 60).padStart(2, "0");
+                document.getElementById("timer").innerText = min + ":" + sec;
+                time = time - 1;
+            } else {
+                document.getElementById("finish").disabled = true;
+                isStarted = false;
+                console.log("타이머작동중");
+                clearInterval(timer);
+            }
+        }, 1000);
     } else {
-        document.getElementById("finish").disabled = true;
+        // 타이머가 동작할 때
     }
-}, 1000);
+};
