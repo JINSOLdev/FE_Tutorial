@@ -1,0 +1,33 @@
+.wrapper__head {
+    width: 600px;
+    border: 2px solid red;
+}
+
+.wrapper__head__title {
+    background-color: orange;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper__head__sub-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+p #point{
+  font-size: 25px;
+  color: orange;
+  border: 1px solid blue;
+}
+
+hr {
+    color: gray;
+}
+
+.wrapper__body {
+    width: 600px;
+    border: 2px solid blue;
+}
