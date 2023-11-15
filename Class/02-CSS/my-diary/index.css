@@ -1,33 +1,67 @@
 .wrapper__head {
-    width: 600px;
-    border: 2px solid red;
+  width: 600px;
+  border: 2px solid red;
 }
 
 .wrapper__head__title {
-    background-color: orange;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  background-color: orange;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .wrapper__head__sub-title {
-    font-size: 18px;
-    font-weight: bold;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-p #point{
+p #point {
   font-size: 25px;
   color: orange;
-  border: 1px solid blue;
+  text-decoration: underline;
 }
 
 hr {
-    color: gray;
+  color: gray;
 }
 
 .wrapper__body {
-    width: 600px;
-    border: 2px solid blue;
+  width: 600px;
+  border: 2px solid blue;
+}
+
+#diary {
+  background-color: beige;
+  width: 400px;
+  margin: 20px;
+  font-weight: bold;
+}
+
+#content {
+  width: 450px;
+  margin-left: 20px;
+}
+
+.ball {
+  color: red;
+  font-weight: bold;
+}
+
+.fire {
+  color: yellow;
+  font-weight: bold;
+}
+
+.over {
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+  color: blue;
+}
+
+.date {
+  width: 450px;
+  text-align: right;
 }
