@@ -1,67 +1,87 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    background-color: #eeeeee;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0px;
+}
+
+.wrapper {
+    width: 620px;
+    padding: 40px 30px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
 .wrapper__head {
-  width: 600px;
-  border: 2px solid red;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed gray;
 }
 
 .wrapper__head__title {
-  background-color: orange;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+    font-size: 32px;
+    background-color: orange;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
 .wrapper__head__sub-title {
-  font-size: 18px;
-  font-weight: bold;
+    font-size: 18px;
+    padding: 10px 0px;
+    font-weight: bold;
 }
 
-p #point {
-  font-size: 25px;
-  color: orange;
-  text-decoration: underline;
-}
-
-hr {
-  color: gray;
+#point {
+    font-size: 22px;
+    color: orange;
+    font-weight: bold;
+    text-decoration: underline;
+    display: block;
+    margin-top: 15px;
 }
 
 .wrapper__body {
-  width: 600px;
-  border: 2px solid blue;
+    border: 1px solid #dddddd;
+    padding: 20px 30px;
 }
 
 #diary {
-  background-color: beige;
-  width: 400px;
-  margin: 20px;
-  font-weight: bold;
-}
-
-#content {
-  width: 450px;
-  margin-left: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #f4f4f4;
+    margin: 20px;
 }
 
 .ball {
-  color: red;
-  font-weight: bold;
+    color: red;
+    font-weight: 600;
 }
 
 .fire {
-  color: yellow;
-  font-weight: bold;
+    color: orange;
+    font-weight: 600;
 }
 
 .over {
-  font-size: 18px;
-  font-weight: bold;
-  font-style: italic;
-  color: blue;
+    font-size: 22px;
+    color: blue;
+    font-weight: 700;
+    font-style: italic;
 }
 
 .date {
-  width: 450px;
-  text-align: right;
+    font-size: 14px;
+    color: #919191;
+    text-align: right;
 }
