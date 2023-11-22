@@ -6,15 +6,25 @@
             const output = function () {
                 console.log('함수를 실행했다요');
             };
+
+            const dateFormMaker = function () {
+                const inputYear = document.querySelector('#targetYear').value;
+                const inputMonth = document.querySelector('#targetMonth').value;
+                const inputDay = document.querySelector('#targetDay').value;
+                // console.log(document.querySelector('#targetYear').value);
+                // console.log(document.querySelector('#targetMonth').value);
+                // console.log(document.querySelector('#targetDay').value);
+
+                console.log(inputYear, inputMonth, inputDay);
+            };
         </script>
     </head>
     <body>
-        <div class="div-class" id="div-id">안녕하세요</div>
-        <div class="div-class">반갑습니다</div>
-        <span>잘 부탁해요</span>
-        <input type="text" />
+        <input id="targetYear" class="targetInput" type="text" />
+        <input id="targetMonth" class="targetInput" type="text" />
+        <input id="targetDay" class="targetInput" type="text" />
 
         <!-- 함수 호출 -->
-        <button onclick="output()">버튼이지롱 뀨우</button>
+        <button onclick="dateFormMaker()">버튼이지롱 뀨우</button>
     </body>
 </html>
