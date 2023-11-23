@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko">
     <head>
-        <title>D-day counter</title>
+        <title>D-day</title>
+        <link rel="stylesheet" href="./style.css" />
         <script>
             const dateFormMaker = function () {
                 const inputYear = document.querySelector('#targetYear').value;
@@ -32,11 +33,31 @@
         </script>
     </head>
     <body>
-        <input id="targetYear" class="targetInput" type="text" />
-        <input id="targetMonth" class="targetInput" type="text" />
-        <input id="targetDate" class="targetInput" type="text" />
+        <h1>D-Day</h1>
+        <div id="d-day-container">
+            <div class="d-day-child-container">
+                <span id="days">0</span>
+                <span>일</span>
+            </div>
+            <div class="d-day-child-container">
+                <span id="hours">0</span>
+                <span>시간</span>
+            </div>
+            <div class="d-day-child-container">
+                <span id="min">0</span>
+                <span>분</span>
+            </div>
+            <div class="d-day-child-container">
+                <span id="sec">0</span>
+                <span>초</span>
+            </div>
+        </div>
+        <div id="target-selector">
+            <input id="targetYear" class="targetInput" type="text" size="5" /> - <input id="targetMonth" class="targetInput" type="text" size="5" /> -
+            <input id="targetDate" class="targetInput" type="text" size="5" />
+        </div>
 
         <!-- 함수 호출 -->
-        <button onclick="counterMaker()">버튼</button>
+        <button onclick="counterMaker()" id="startBtn">카운트다운 시작!</button>
     </body>
 </html>
