@@ -1,7 +1,7 @@
 const messageContainer = document.querySelector('#d-day-message');
 const container = document.querySelector('#d-day-container');
 
-// container.style.display = 'none';
+container.style.display = 'none';
 messageContainer.innerHTML = '<h2>D-day를 입력해주세요.</h2>';
 
 const dateFormMaker = function () {
@@ -21,19 +21,19 @@ const counterMaker = function () {
     const nowDate = new Date();
     const targetDate = new Date(targetDateInput).setHours(0, 0, 0, 0);
     const remaining = (targetDate - nowDate) / 1000;
-
-    // 만약 remaining이 0이라면, 타이머가 종료되었습니다. 출력
     if (remaining <= 0) {
+        // 만약 remaining이 0이라면, 타이머가 종료되었습니다. 출력
+        container.style.display = 'none';
         messageContainer.innerHTML = '<h3>타이머가 종료되었습니다.</h3>';
+        messageContainer.style.display = 'flex';
+        return;
     } else if (isNaN(remaining)) {
         // 만약 잘못된 날짜가 들어왔다면, 유효한 시간대가 아닙니다. 출력
+        container.style.display = 'none';
         messageContainer.innerHTML = '<h3>유효한 시간대가 아닙니다.</h3>';
+        messageContainer.style.display = 'flex';
+        return;
     }
-
-    // const remainingDate = Math.floor(remaining / 3600 / 24);
-    // const remainingHours = Math.floor(remaining / 3600) % 24;
-    // const remainingMin = Math.floor(remaining / 60) % 60;
-    // const remainingSec = Math.floor(remaining) % 60;
 
     const remainingObj = {
         remainingDate: Math.floor(remaining / 3600 / 24),
@@ -41,21 +41,40 @@ const counterMaker = function () {
         remainingMin: Math.floor(remaining / 60) % 60,
         remainingSec: Math.floor(remaining) % 60,
     };
+    // const remainingDate = Math.floor(remaining / 3600 / 24);
+    // const remainingHours = Math.floor(remaining / 3600) % 24;
+    // const remainingMin = Math.floor(remaining / 60) % 60;
+    // const remainingSec = Math.floor(remaining) % 60;
 
-    const documentObj = {
-        days: document.getElementById('days'),
-        hours: document.getElementById('hours'),
-        min: document.getElementById('min'),
-        sec: document.getElementById('sec'),
-    };
-
+    const documentArr = ['days', 'hours', 'min', 'sec'];
     const timeKeys = Object.keys(remainingObj);
-    const docKeys = Object.keys(documentObj);
+    // const docKeys = Object.keys(documentObj);
+
+    // for-of 반복문
+    let i = 0;
+    for (const tag of documentArr) {
+        document.getElementById(tag).textContent = remainingObj[timeKeys[i]];
+        i++;
+    }
 
     // 날짜 데이터 리팩토링
-    for (let i = 0; i < timeKeys.length; i++) {
-        documentObj[docKeys[i]].textContent = remainingObj[timeKeys[i]];
-    }
+    // for (let i = 0; i < timeKeys.length; i++) {
+    //     documentObj[docKeys[i]].textContent = remainingObj[timeKeys[i]];
+    // }
+
+    // const documentObj = {
+    //     days: document.getElementById('days'),
+    //     hours: document.getElementById('hours'),
+    //     min: document.getElementById('min'),
+    //     sec: document.getElementById('sec'),
+    // };
+    // // for-in 반복문
+    // let i = 0;
+    // for (let key in documentObj) {
+    //     // console.log(documentObj[key], key);
+    //     documentObj[key].textContent = remainingObj[timeKeys[i]];
+    //     i++;
+    // }
 
     // documentObj['days'].textContent = remainingObj['remainingDate'];
     // documentObj['hours'].textContent = remainingObj['remainingHours'];
@@ -71,4 +90,10 @@ const counterMaker = function () {
     // hours.textContent = remainingObj['remainingHours'];
     // min.textContent = remainingObj['remainingMin'];
     // sec.textContent = remainingObj['remainingSec'];
+};
+
+const starter = function () {
+    container.style.display = 'flex';
+    messageContainer.style.display = 'none';
+    counterMaker();
 };
