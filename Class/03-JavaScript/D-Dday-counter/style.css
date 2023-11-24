@@ -37,7 +37,7 @@ h1 {
     margin-bottom: 10px;
 }
 
-#startBtn {
+.startBtn {
     margin-top: 0.5rem;
     font-size: 1.3rem;
     padding: 5px;

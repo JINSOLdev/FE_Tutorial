@@ -96,4 +96,16 @@ const starter = function () {
     container.style.display = 'flex';
     messageContainer.style.display = 'none';
     counterMaker();
+
+    // for (let i = 0; i < 100; i++) {
+    //     setTimeout(() => {
+    //         counterMaker();
+    //     }, 1000 * i);
+    // }
+
+    const intervalId = setInterval(counterMaker, 1000);
+};
+
+const setClearInterval = function () {
+  
 };
