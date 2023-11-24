@@ -49,10 +49,18 @@ const counterMaker = function () {
         sec: document.getElementById('sec'),
     };
 
-    documentObj['days'].textContent = remainingObj['remainingDate'];
-    documentObj['hours'].textContent = remainingObj['remainingHours'];
-    documentObj['min'].textContent = remainingObj['remainingMin'];
-    documentObj['sec'].textContent = remainingObj['remainingSec'];
+    const timeKeys = Object.keys(remainingObj);
+    const docKeys = Object.keys(documentObj);
+
+    // 날짜 데이터 리팩토링
+    for (let i = 0; i < timeKeys.length; i++) {
+        documentObj[docKeys[i]].textContent = remainingObj[timeKeys[i]];
+    }
+
+    // documentObj['days'].textContent = remainingObj['remainingDate'];
+    // documentObj['hours'].textContent = remainingObj['remainingHours'];
+    // documentObj['min'].textContent = remainingObj['remainingMin'];
+    // documentObj['sec'].textContent = remainingObj['remainingSec'];
 
     // const days = document.getElementById('days');
     // const hours = document.getElementById('hours');
