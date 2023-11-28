@@ -17,7 +17,8 @@ const dateFormMaker = function () {
     return dateFormat;
 };
 
-const counterMaker = function () {
+const counterMaker = function (data) {
+    console.log(data);
     console.log('반복 실행중');
     const targetDateInput = dateFormMaker();
     const nowDate = new Date();
@@ -52,11 +53,21 @@ const counterMaker = function () {
 
     const documentArr = ['days', 'hours', 'min', 'sec'];
     const timeKeys = Object.keys(remainingObj);
+
+    const format = function (time) {
+        if (time < 10) {
+            return '0' + time;
+        } else {
+            return time;
+        }
+    };
     // const docKeys = Object.keys(documentObj);
 
     // for-of 반복문
     let i = 0;
     for (const tag of documentArr) {
+        const remainingTime = format(remainingObj[timeKeys[i]]);
+        console.log(remainingTime);
         document.getElementById(tag).textContent = remainingObj[timeKeys[i]];
         i++;
     }
@@ -97,9 +108,10 @@ const counterMaker = function () {
 };
 
 const starter = function () {
+    const targetDateInput = dateFormMaker();
     container.style.display = 'flex';
     messageContainer.style.display = 'none';
-    counterMaker();
+    counterMaker(targetDateInput);
 
     // for (let i = 0; i < 100; i++) {
     //     setTimeout(() => {
@@ -113,10 +125,17 @@ const starter = function () {
 };
 
 const setClearInterval = function () {
-    container.style.display = 'none';
-    messageContainer.innerHTML = '<h2>D-day를 입력해주세요.</h2>';
+    // container.style.display = 'none';
+    // messageContainer.innerHTML = '<h2>D-day를 입력해주세요.</h2>';
     container.style.display = 'flex';
     for (let i = 0; i < intervalIdArr.length; i++) {
         clearInterval(intervalIdArr[i]);
     }
+};
+
+const resetTimer = function () {
+    container.style.display = 'none';
+    messageContainer.innerHTML = `<h2>D-Day를 입력해주세요.</h2>`;
+    messageContainer.style.display = 'flex';
+    setClearInterval();
 };
