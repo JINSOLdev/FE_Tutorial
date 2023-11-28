@@ -1,5 +1,6 @@
 const messageContainer = document.querySelector('#d-day-message');
 const container = document.querySelector('#d-day-container');
+const intervalIdArr = [];
 
 container.style.display = 'none';
 messageContainer.innerHTML = '<h2>D-day를 입력해주세요.</h2>';
@@ -17,6 +18,7 @@ const dateFormMaker = function () {
 };
 
 const counterMaker = function () {
+    console.log('반복 실행중');
     const targetDateInput = dateFormMaker();
     const nowDate = new Date();
     const targetDate = new Date(targetDateInput).setHours(0, 0, 0, 0);
@@ -26,12 +28,14 @@ const counterMaker = function () {
         container.style.display = 'none';
         messageContainer.innerHTML = '<h3>타이머가 종료되었습니다.</h3>';
         messageContainer.style.display = 'flex';
+        setInterval();
         return;
     } else if (isNaN(remaining)) {
         // 만약 잘못된 날짜가 들어왔다면, 유효한 시간대가 아닙니다. 출력
         container.style.display = 'none';
         messageContainer.innerHTML = '<h3>유효한 시간대가 아닙니다.</h3>';
         messageContainer.style.display = 'flex';
+        setClearInterval();
         return;
     }
 
@@ -104,8 +108,15 @@ const starter = function () {
     // }
 
     const intervalId = setInterval(counterMaker, 1000);
+    intervalIdArr.push(intervalId);
+    console.log(intervalIdArr);
 };
 
 const setClearInterval = function () {
-  
+    container.style.display = 'none';
+    messageContainer.innerHTML = '<h2>D-day를 입력해주세요.</h2>';
+    container.style.display = 'flex';
+    for (let i = 0; i < intervalIdArr.length; i++) {
+        clearInterval(intervalIdArr[i]);
+    }
 };
