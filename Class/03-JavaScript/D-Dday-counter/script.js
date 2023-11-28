@@ -1,5 +1,7 @@
 const messageContainer = document.querySelector('#d-day-message');
 const container = document.querySelector('#d-day-container');
+const savedDate = localStorage.getItem('saved-date');
+console.log(savedDate);
 const intervalIdArr = [];
 
 container.style.display = 'none';
@@ -18,8 +20,11 @@ const dateFormMaker = function () {
 };
 
 const counterMaker = function (data) {
+    if (data !== savedDate) {
+        localStorage.setItem('saved-date', data);
+    }
     console.log(data);
-    console.log('반복 실행중');
+    // console.log('반복 실행중');
     const targetDateInput = dateFormMaker();
     const nowDate = new Date();
     const targetDate = new Date(targetDateInput).setHours(0, 0, 0, 0);
@@ -107,10 +112,14 @@ const counterMaker = function (data) {
     // sec.textContent = remainingObj['remainingSec'];
 };
 
-const starter = function () {
-    const targetDateInput = dateFormMaker();
+const starter = function (targetDateInput) {
+    if (!targetDateInput) {
+        targetDateInput = dateFormMaker();
+    }
+    // localStorage.setItem('saved-date', targetDateInput);
     container.style.display = 'flex';
     messageContainer.style.display = 'none';
+    setClearInterval();
     counterMaker(targetDateInput);
 
     // for (let i = 0; i < 100; i++) {
@@ -119,15 +128,17 @@ const starter = function () {
     //     }, 1000 * i);
     // }
 
-    const intervalId = setInterval(counterMaker, 1000);
+    const intervalId = setInterval(() => {
+        counterMaker(targetDateInput);
+    }, 1000);
     intervalIdArr.push(intervalId);
-    console.log(intervalIdArr);
 };
 
 const setClearInterval = function () {
     // container.style.display = 'none';
     // messageContainer.innerHTML = '<h2>D-day를 입력해주세요.</h2>';
-    container.style.display = 'flex';
+    // container.style.display = 'flex';
+    localStorage.removeItem('saved-date');
     for (let i = 0; i < intervalIdArr.length; i++) {
         clearInterval(intervalIdArr[i]);
     }
@@ -139,3 +150,10 @@ const resetTimer = function () {
     messageContainer.style.display = 'flex';
     setClearInterval();
 };
+
+if (savedDate) {
+    starter();
+} else {
+    container.style.display = 'none';
+    messageContainer.innerHTML = `<h2>D-Day를 입력해주세요.</h2>`;
+}
