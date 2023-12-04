@@ -1,10 +1,16 @@
+const todoInput = document.querySelector('#todo-input');
+
 const keyCodeCheck = function () {
     // console.log(window.event);
     // console.log(window.event.keyCode === 13);
-    if (window.event.keyCode === 13) {
-        const inputValue = document.querySelector('#todo-input').value;
+    if (window.event.keyCode === 13 && todoInput.value !== '') {
+        const todoList = document.querySelector('#todo-list');
         const newLi = document.createElement('li');
         const newSpan = document.createElement('span');
-        console.log(inputValue, newLi, newSpan);
+
+        newSpan.textContent = todoInput.value;
+        newLi.appendChild(newSpan);
+        todoList.appendChild(newLi);
+        todoInput.value = '';
     }
 };
