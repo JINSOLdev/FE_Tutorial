@@ -4,14 +4,15 @@
         <meta charset="UTF-8" />
         <title>ToDo</title>
         <link rel="stylesheet" href="./index.css" />
+        <script src="./index.js"></script>
     </head>
     <body>
         <h1>ToDo</h1>
         <div class="todo-container">
-            <input type="text" id="todo-input" />
+            <input type="text" id="todo-input" onkeydown="keyCodeCheck()" />
             <ul>
-                <li></li>
-                <li></li>
+                <li>인사하기</li>
+                <li>손 흔들기</li>
             </ul>
         </div>
     </body>
