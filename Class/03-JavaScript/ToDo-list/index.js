@@ -3,12 +3,6 @@ const todoList = document.querySelector('#todo-list');
 
 const savedTodoList = JSON.parse(localStorage.getItem('save-items'));
 
-if (savedTodoList) {
-    for (let i = 0; i < savedTodoList.length; i++) {
-        createTodo(savedTodoList[i]);
-    }
-}
-
 const createTodo = function (storageData) {
     let todoContents = todoInput.value;
     if (storageData) {
@@ -26,7 +20,12 @@ const createTodo = function (storageData) {
 
     newLi.addEventListener('dblclick', () => {
         newLi.remove();
+        saveItemsFn();
     });
+
+    if (storageData?.complete) {
+        newLi.classList.add('complete');
+    }
 
     newSpan.textContent = todoContents;
     newLi.appendChild(newBtn);
@@ -47,6 +46,7 @@ const deleteAll = function () {
     for (let i = 0; i < liList.length; i++) {
         liList[i].remove();
     }
+    saveItemsFn();
 };
 
 const saveItemsFn = function () {
@@ -58,7 +58,19 @@ const saveItemsFn = function () {
         };
         saveItems.push(todoObj);
     }
-    // console.log(saveItems);
-    // console.log(JSON.stringify(saveItems));
-    localStorage.setItem('save-items', JSON.stringify(saveItems));
+
+    // 삼항연산자 사용해서 코드 줄이기
+    //     if (saveItems.length == 0) {
+    //         localStorage.removeItem('save-items');
+    //     } else {
+    //         localStorage.setItem('save-items', JSON.stringify(saveItems));
+    //     }
+
+    saveItems.length === 0 ? localStorage.removeItem('save-items') : localStorage.setItem('save-items', JSON.stringify(saveItems));
 };
+
+if (savedTodoList) {
+    for (let i = 0; i < savedTodoList.length; i++) {
+        createTodo(savedTodoList[i]);
+    }
+}
