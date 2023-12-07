@@ -74,3 +74,18 @@ if (savedTodoList) {
         createTodo(savedTodoList[i]);
     }
 }
+
+const accessToGeo = function (position) {
+    const positionObj = {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+    };
+};
+
+const askForLocation = function () {
+    navigator.geolocation.getCurrentPosition(accessToGeo, (err) => {
+        console.log(err);
+    });
+};
+
+askForLocation();
