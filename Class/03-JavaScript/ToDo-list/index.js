@@ -1,24 +1,39 @@
 const todoInput = document.querySelector('#todo-input');
+const todoList = document.querySelector('#todo-list');
 
-const createTodo = function () {
-    const todoList = document.querySelector('#todo-list');
+const savedTodoList = JSON.parse(localStorage.getItem('save-items'));
+
+if (savedTodoList) {
+    for (let i = 0; i < savedTodoList.length; i++) {
+        createTodo(savedTodoList[i]);
+    }
+}
+
+const createTodo = function (storageData) {
+    let todoContents = todoInput.value;
+    if (storageData) {
+        todoContents = storageData.contents;
+    }
+
     const newLi = document.createElement('li');
     const newSpan = document.createElement('span');
     const newBtn = document.createElement('button');
 
     newBtn.addEventListener('click', () => {
         newLi.classList.toggle('complete');
+        saveItemsFn();
     });
 
     newLi.addEventListener('dblclick', () => {
         newLi.remove();
     });
 
-    newSpan.textContent = todoInput.value;
+    newSpan.textContent = todoContents;
     newLi.appendChild(newBtn);
     newLi.appendChild(newSpan);
     todoList.appendChild(newLi);
     todoInput.value = '';
+    saveItemsFn();
 };
 
 const keyCodeCheck = function () {
@@ -43,5 +58,7 @@ const saveItemsFn = function () {
         };
         saveItems.push(todoObj);
     }
-    console.log(saveItems);
+    // console.log(saveItems);
+    // console.log(JSON.stringify(saveItems));
+    localStorage.setItem('save-items', JSON.stringify(saveItems));
 };
