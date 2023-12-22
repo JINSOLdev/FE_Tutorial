@@ -22,8 +22,11 @@ import {
     ZipcodeWrapper,
 } from '../../../styles/boardsNew';
 
+// 컴포넌트!
 export default function BoardsNewPage() {
+    // javascript
     return (
+        // javascript 전용 html
         <Wrapper>
             <Title>게시글 등록</Title>
             <WriterWrapper>
