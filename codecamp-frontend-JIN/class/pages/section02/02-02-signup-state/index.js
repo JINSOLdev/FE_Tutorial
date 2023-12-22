@@ -28,7 +28,7 @@ export default function SignupStatePage() {
             // alert('이메일이 올바르지 않습니다');
             // document.getElementById('myerror').innerText = '이메일이 올바르지 않습니다';
             setEmailError('이메일이 올바르지 않습니다!');
-        } else if (password.length !== 6) {
+        } else if (password.length < 6 || password.length > 8) {
             console.log(password.length);
             setPasswordError('비밀번호가 올바르지 않습니다!');
         } else {
