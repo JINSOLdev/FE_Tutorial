@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 export default function RestGetPage() {
     function onClickAsync() {
         const result = axios.get('https://koreanjson.com/posts/1');
