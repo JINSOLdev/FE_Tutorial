@@ -25,20 +25,18 @@ export default function SignupPage() {
     }
 
     function onClickSignup() {
-        // 에러 초기화
-        // setEmailError('');
-        // setPasswordError('');
-        // setPasswordConfirmError('');
-
         // 조건 검증
         if (email.includes('@') === false) {
             setEmailError('이메일을 확인해주세요❗');
+            // setEmailError('');
             return;
         }
 
         if (password !== passwordConfirm) {
             setPasswordError('비밀번호가 다릅니다❗ ');
+            // setPasswordError('');
             // setPasswordConfirmError('비밀번호가 다릅니다❗ 2');
+            // setPasswordConfirmError('');
             return;
         }
 
