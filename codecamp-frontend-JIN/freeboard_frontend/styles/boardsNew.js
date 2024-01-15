@@ -1,21 +1,39 @@
 import styled from '@emotion/styled';
 
+// 내가 작성한 코드
+// export const Wrapper = styled.div`
+//     width: 1200px;
+//     // height: 1715px;
+//     border: 1px solid black;
+//     margin: 100px;
+//     padding-top: 80px;
+//     padding-bottom: 100px;
+//     padding-left: 102px;
+//     display: flex;
+//     flex-direction: column;
+//     align-item: center;
+//     border: none;
+//     box-shadow: 0px 0px 10px gray;
+// `;
+
+// 레퍼런스 코드 복붙
 export const Wrapper = styled.div`
     width: 1200px;
-    // height: 1715px;
+    /* height: 1847px; */
     border: 1px solid black;
     margin: 100px;
     padding-top: 80px;
     padding-bottom: 100px;
     padding-left: 102px;
+    padding-right: 102px;
     display: flex;
     flex-direction: column;
-    align-item: center;
+    align-items: center;
     border: none;
     box-shadow: 0px 0px 10px gray;
 `;
 
-export const Title = styled.span`
+export const Title = styled.div`
     font-family: Arial, Helvetica, sans-serif;
     font-size: 34px;
     font-weight: bold;
@@ -27,19 +45,22 @@ export const WriterWrapper = styled.div`
     flex-direction: row;
     justify-content: space-between;
     padding-top: 40px;
+    margin-left: 180px;
 `;
 
 export const Writer = styled.input`
-    width: 486px;
+    width: 440px;
     height: 52px;
     padding-left: 16px;
+    margin-right: 100px;
     border: 1px solid #bdbdbd;
 `;
 
 export const Password = styled.input`
-    width: 486px;
+    width: 440px;
     height: 52px;
     padding-left: 16px;
+    margin-right: 1000px;
     border: 1px solid #bdbdbd;
 `;
 
@@ -67,6 +88,10 @@ export const Contents = styled.textarea`
     padding: 14px;
     border: 1px solid #bdbdbd;
 `;
+
+export const AddressLabel = styled.span`
+    margin-left: 100px;
+`;
 export const ZipcodeWrapper = styled.div`
     display: flex;
     flex-direction: row;
@@ -76,7 +101,9 @@ export const Zipcode = styled.input`
     height: 52px;
     padding-left: 16px;
     border: 1px solid #bdbdbd;
+    margin-left: 180px;
 `;
+
 export const SearchButton = styled.button`
     width: 124px;
     height: 52px;
@@ -91,6 +118,7 @@ export const Address = styled.input`
     margin-top: 16px;
     padding-left: 16px;
     border: 1px solid #bdbdbd;
+    margin-left: 90px;
 `;
 export const Youtube = styled.input`
     width: 996px;
@@ -104,13 +132,16 @@ export const ImageWrapper = styled.div`
     padding-top: 40px;
 `;
 export const UploadButton = styled.button`
-width: 78px;
-height: 78px;
-background-color: #bdbdbd
-padding-right: 24px;
-outline: none;
-border: none;
-cursor: pointer;
+    width: 78px;
+    height: 78px;
+    background-color: #bdbdbd
+    padding-right: 24px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    justify-content: center;
+    text-align: column;
 `;
 export const OptionWrapper = styled.div`
     width: 996px;
@@ -121,8 +152,8 @@ export const RadioButton = styled.input`
 `;
 export const RadioLabel = styled.label`
     margin-left: 8px;
-    margin-right: 20px;
     font-weight: 500;
+    margin-right: 20px;
     cursor: pointer;
 `;
 export const ButtonWrapper = styled.div`

@@ -8,6 +8,7 @@ import {
     Password,
     Subject,
     Contents,
+    AddressLabel,
     ZipcodeWrapper,
     Zipcode,
     SearchButton,
@@ -45,7 +46,7 @@ export default function boardsNewPage() {
                 <Contents placeholder="내용을 작성해주세요."></Contents>
             </InputWrapper>
             <InputWrapper>
-                <Label>주소</Label>
+                <AddressLabel>주소</AddressLabel>
                 <ZipcodeWrapper>
                     <Zipcode placeholder="07250"></Zipcode>
                     <SearchButton>우편번호 검색</SearchButton>
@@ -59,9 +60,9 @@ export default function boardsNewPage() {
             </InputWrapper>
             <ImageWrapper>
                 <Label>사진 첨부</Label>
-                <UploadButton>+ Upload</UploadButton>
-                <UploadButton>+ Upload</UploadButton>
-                <UploadButton>+ Upload</UploadButton>
+                <UploadButton id="upload">+ Upload</UploadButton>
+                <UploadButton id="upload">+ Upload</UploadButton>
+                <UploadButton id="upload">+ Upload</UploadButton>
             </ImageWrapper>
             <OptionWrapper>
                 <Label>메인 설정</Label>
