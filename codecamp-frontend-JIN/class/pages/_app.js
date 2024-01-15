@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
         <div>
             {/* <div>===================여기는 _app.js 컴포넌트 시작 부분 입니다.=====================</div> */}
                 <ApolloProvider client={client}>
-                    <Component {...pageProps} />;
+                    <Component {...pageProps} />
                 </ApolloProvider>
             {/* <div>===================여기는 _app.js 컴포넌트 시작 부분 입니다.=====================</div> */}
         </div>
