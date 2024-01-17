@@ -18,19 +18,22 @@ export default function GraphqlMutationPage() {
     const [createProduct] = useMutation(CREATE_PRODUCT);
 
     const onClickSubmit = async () => {
-        const result = await createProduct({
-            variables: {
-                seller: '훈이',
-                createProductInput: {
-                    name: '마우스',
-                    detail: '정말 좋음',
-                    price: 3000,
+        try {
+            const result = await createProduct({
+                variables: {
+                    seller: '훈이',
+                    createProductInput: {
+                        name: '마우스',
+                        detail: '정말 좋음',
+                        price: 3000,
+                    },
                 },
-            },
-        });
-        console.log(result);
+            });
+            console.log(result);
+        } catch (error) {
+            console.error('GraphQL mutation failed:', error);
+        }
     };
 
-    // 한 줄일때는 괄호() 필요없음
     return <button onClick={onClickSubmit}>GRAPHQL-API 요청하기</button>;
 }
